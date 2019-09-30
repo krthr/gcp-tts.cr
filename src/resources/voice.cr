@@ -30,6 +30,12 @@ module TTS
     # Returns a list of Voice supported for synthesis.
     #
     # - `languageCode`: Optional (but recommended) [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag. If specified, the voices.list call will only return voices that can be used to synthesize this languageCode. E.g. when specifying "en-NZ", you will get supported "en-*" voices; when specifying "no", you will get supported "no-*" (Norwegian) and "nb-*" (Norwegian Bokmal) voices; specifying "zh" will also get supported "cmn-*" voices; specifying "zh-hk" will also get supported "yue-*" voices.
+    #
+    # Example:
+    # ```
+    # TTS::Voice.list "es"
+    # TTS::Voice.list
+    # ```
     def self.list(languageCode : String? = "") : ListResponse
       response = HTTPClient.get "/voices", {"languageCode" => languageCode}
       ListResponse.from_json response.body
