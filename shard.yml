@@ -1,0 +1,15 @@
+name: gcp-tts
+version: 0.1.0
+
+authors:
+  - krthr <twilson@uninorte.edu.co>
+
+crystal: 0.31.0
+
+license: MIT
+
+dependencies:
+  crest:
+    github: mamantoha/crest
+  jwt:
+    github: crystal-community/jwt
